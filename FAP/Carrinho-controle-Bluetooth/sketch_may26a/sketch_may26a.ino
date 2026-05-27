@@ -82,19 +82,19 @@ void FuncaoBotaoPressionado()
   }
 
   switch(command){
-    case 'E':   // □ Virar Esquerda
+    case 'D':   // □ Virar Direita
       if(virar!=-1){virar=-1;}else{virar=0;}
       break;
       
-    case 'D':   // o Virar Direita
+    case 'A':   // o Virar Esquerda
       if(virar!= 1){virar= 1;}else{virar=0;}
       break;
       
-    case 'T':   // ↓ Ré
+    case 'S':   // ↓ Ré
       if(mover != -1){mover--;}else{mover=0;}
       break;
       
-    case 'F':  // ↑ Frente
+    case 'W':  // ↑ Frente
       if(mover !=  1){ mover++;}else{mover=0;}
       break;
   }
@@ -134,19 +134,19 @@ void loop()
 
   FuncaoBotaoPressionado();
 
-  if(virar == 1) //Direita
+  if(virar == 1) //Esquerda
   {
     servo.write(10);
   }else
-  if(virar ==-1) //Esquerda
+  if(virar ==-1) //Direita
   {
     servo.write(160);
   }
   else{          //Reto
-    servo.write(95);
+    servo.write(85);
   }
 
-  if(mover == 1 && !(distancia<30)){                    // Frente
+  if(mover == 1 /*&& !(distancia<30)*/){                    // Frente
     RodasEsquerda(255, 1);
     RodasDireita (255, 1);
   }
@@ -181,5 +181,5 @@ void loop()
   	
   Serial.println();
   Serial.println("______________________________");
-  delay(100);
+  //delay(100);
 }
